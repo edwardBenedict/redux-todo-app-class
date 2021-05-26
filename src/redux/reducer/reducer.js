@@ -34,7 +34,15 @@ const todoReducer = (state = INITIAL_STATE, action) => {
         ),
       };
 
+    case DELETE_TODO:
+      return {
+        ...state,
+        list: state.list.filter((item) => item.id !== action.payload),
+      };
+
     default:
-      break;
+      return state;
   }
 };
+
+export default todoReducer;
